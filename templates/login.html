@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Chat Tugó</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+            background: url('/static/Tugo3.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(245,245,245,0.55);
+            backdrop-filter: blur(2.5px);
+            z-index: 0;
+        }
+        .login-container {
+            background: linear-gradient(135deg, #fff 80%, #fbeee6 100%);
+            padding: 36px 28px 28px 28px;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(223,95,74,0.13), 0 1.5px 8px rgba(0,0,0,0.07);
+            text-align: center;
+            width: 420px;
+            max-width: 95vw;
+            border: 1.5px solid #f3d1c7;
+            position: relative;
+            z-index: 1;
+        }
+        .login-container h2 {
+            margin-bottom: 26px;
+            color: #c66642;
+            font-size: 2em;
+            letter-spacing: 0.5px;
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+            font-weight: 600;
+        }
+        .login-container input {
+            width: 94%;
+            padding: 13px 14px;
+            margin: 12px 0;
+            border-radius: 7px;
+            border: 1.2px solid #e3bca8;
+            font-size: 15.5px;
+            background: #faf7f6;
+            transition: border 0.18s;
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+        }
+        .login-container input:focus {
+            border: 1.2px solid #df5f4a;
+            outline: none;
+        }
+        .login-container button {
+            background: linear-gradient(90deg, #df5f4a 60%, #c66642 100%);
+            color: white;
+            border: none;
+            border-radius: 7px;
+            padding: 13px 0;
+            width: 100%;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 18px;
+            box-shadow: 0 2px 8px rgba(223,95,74,0.10);
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+            font-weight: 600;
+            transition: background 0.18s;
+        }
+        .login-container button:hover {
+            background: linear-gradient(90deg, #a0522d 60%, #c66642 100%);
+        }
+        @media (max-width: 600px) {
+            .login-container {
+                width: 96vw;
+                max-width: 96vw;
+                padding: 22px 4vw 16px 4vw;
+                border-radius: 12px;
+            }
+            .login-container h2 {
+                font-size: 1.25em;
+            }
+            .login-container input, .login-container button {
+                font-size: 1em;
+                padding: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form class="login-container" method="post" action="/login">
+        <h2>Iniciar sesión</h2>
+        <input type="text" name="username" placeholder="Usuario" required>
+        <input type="password" name="password" placeholder="Contraseña" required>
+        {% if error %}
+        <div style="color:#df5f4a; margin-top:10px; font-size:1em;">
+            {{ error }}
+        </div>
+        {% endif %}
+        <button type="submit">Entrar</button>
+    </form>
+</body>
+</html>

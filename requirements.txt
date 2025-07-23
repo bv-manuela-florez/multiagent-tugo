@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+pytz
+jinja2
+python-multipart
+azure-ai-agents
+azure-cosmos
+openai
+aiohttp
+itsdangerous
+azure.identity
+python-dotenv>=0.19.2,<1.0.0
+azure-ai-projects
+azure-keyvault-secrets
+azure-storage-blob
+opencensus-ext-azure
+opencensus-ext-logging

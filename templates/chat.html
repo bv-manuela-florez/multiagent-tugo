@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Tugó</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/chat.css">
+</head>
+<body>
+    <!-- Inserta el username como variable JS global -->
+    <script>
+        window.username = "{{ username }}";
+    </script>
+    <div class="main-layout">
+        <!-- Sidebar Backdrop for mobile -->
+        <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header" style="position:relative;">
+                <i class="fa fa-comments"></i> Chat Tugó
+                <button id="sidebar-close-btn" title="Cerrar menú" aria-label="Cerrar menú"
+                    style="display:none;position:absolute;top:16px;right:16px;background:none;border:none;font-size:1.7em;color:#df5f4a;cursor:pointer;z-index:10;">
+                    &times;
+                </button>
+            </div>
+            <div class="sidebar-actions">
+                <button id="new-chat-btn"><i class="fa fa-plus"></i> Nuevo chat</button>
+            </div>
+            <div class="sidebar-history-title">Chats recientes</div>
+            <div class="sidebar-history">
+                <ul class="conversation-list" id="conversation-list"></ul>
+            </div>
+            <div class="sidebar-footer">
+                <span style="font-size:13px;">&copy; Tugó <span id="footer-year"></span></span>
+            </div>
+        </div>
+        <!-- Chat principal -->
+        <div class="chat-main">
+            <!-- HEADER SIEMPRE PRESENTE -->
+            <div class="chat-header">
+                <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" title="Abrir menú" aria-label="Abrir menú">
+                    <span class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </button>
+                <span id="chat-title">Chat</span>
+                <div class="chat-header-user" style="display:flex;align-items:center;gap:18px;">
+                    <span id="user-display" data-username="{{ username }}" style="font-size:15px;color:#c66642;font-weight:500;">
+                        <!-- username se inserta por JS -->
+                    </span>
+                    <a href="#" class="logout-btn" title="Cerrar sesión" id="logout-link" style="padding:8px 10px;">
+                        <i class="fa fa-sign-out-alt"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="chat-messages" id="chat-messages"></div>
+            <div class="chat-input-area">
+                <input type="text" id="user-input" placeholder="Escribe tu mensaje...">
+                <button onclick="sendMessage()">Enviar</button>
+            </div>
+        </div>
+    </div>
+    <script src="/static/chat.js"></script>
+</body>
+</html>
