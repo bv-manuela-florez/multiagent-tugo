@@ -296,7 +296,7 @@ body {
     white-space: nowrap;
 }
 .chat-input-area button:hover {
-    background: linear-gradient(90deg, #a0522d 60%, #c66642 100%);
+    background: linear-gradient(90deg, var(--color-accent-dark) 60%, var(--color-accent-dark) 100%);
 }
 
 /* --- IMÁGENES --- */
@@ -484,6 +484,18 @@ body {
     }
     .sidebar-toggle-btn .hamburger span:nth-child(3) {
         top: 18px;
+    }
+        .sidebar-backdrop {
+        display: none;
+    }
+    .sidebar-backdrop.active {
+        display: block;
+        position: fixed;
+        z-index: 3000;
+        left: 0; top: 0; right: 0; bottom: 0;
+        background: rgba(0,0,0,0.18);
+        /* Permite hacer clic para cerrar el sidebar */
+        cursor: pointer;
     }
 }
 @media (max-width: 400px) {
