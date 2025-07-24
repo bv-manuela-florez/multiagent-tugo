@@ -40,6 +40,9 @@ async function loadConversationMessages(sessionIdToLoad) {
     const messages = await resp.json();
     const chatMessages = document.getElementById('chat-messages');
     chatMessages.innerHTML = '';
+    if (messages.length === 0) {
+        showWelcomeMessage();
+    }
     messages.forEach(msg => {
         const div = document.createElement('div');
         div.className = msg.role === 'user' ? 'user' : 'bot';
@@ -86,6 +89,7 @@ document.getElementById('new-chat-btn').addEventListener('click', function() {
     sessionId = generateSessionId();
     localStorage.setItem('session_id', sessionId);
     document.getElementById('chat-messages').innerHTML = '';
+    showWelcomeMessage();
     loadConversationList();
     // Cierra el sidebar si está en móvil
     if (window.innerWidth <= 600) closeSidebar();
@@ -98,6 +102,9 @@ async function sendMessage() {
 }
 async function sendToChat(userInput) {
     const messagesDiv = document.getElementById('chat-messages');
+    // Elimina el mensaje de bienvenida si existe antes de agregar el primer mensaje
+    const welcomeDiv = messagesDiv.querySelector('.chat-welcome-message');
+    if (welcomeDiv) welcomeDiv.remove();
     const userInputElem = document.getElementById('user-input');
     userInputElem.disabled = true; // Deshabilita input mientras responde el bot
     // Display user message
@@ -226,7 +233,7 @@ function formatResponse(response) {
     return formatted;
 }
 function cleanResponse(response) {
-    return response.replace(/【.*?†source】/g, '').trim();
+    return response.replace(/【.*?】/g, '').trim();
 }
 // Inicialización
 window.addEventListener('DOMContentLoaded', function () {
@@ -290,3 +297,22 @@ window.addEventListener('DOMContentLoaded', function () {
         sidebarCloseBtn.style.display = 'none';
     }
 });
+
+function showWelcomeMessage() {
+    const chatMessages = document.getElementById('chat-messages');
+    // Elimina cualquier mensaje de bienvenida previo
+    const prevWelcome = chatMessages.querySelector('.chat-welcome-message');
+    if (prevWelcome) prevWelcome.remove();
+    // Verifica si hay mensajes reales (excluye nodos de bienvenida)
+    const hasMessages = Array.from(chatMessages.children).some(
+        el => !el.classList.contains('chat-welcome-message')
+    );
+    if (!hasMessages) {
+            chatMessages.style.position = "relative";
+        const welcomeDiv = document.createElement('div');
+        welcomeDiv.className = 'chat-welcome-message';
+        // Agrega ícono y texto
+        welcomeDiv.innerHTML = `<span class="welcome-icon">👋¿En qué puedo ayudarte?`;
+        chatMessages.appendChild(welcomeDiv);
+    }
+}

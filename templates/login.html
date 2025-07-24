@@ -97,6 +97,11 @@
     </style>
 </head>
 <body>
+    {% if welcome_message %}
+    <div style="color:#0c2a4b; background:#e6f4fb; border-radius:8px; padding:12px 0; margin-bottom:18px; font-size:1.1em; font-weight:500;">
+        {{ welcome_message }}
+    </div>
+    {% endif %}
     <form class="login-container" method="post" action="/login">
         <h2>Iniciar sesión</h2>
         <input type="text" name="username" placeholder="Usuario" required>
