@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Tugó</title>
+    <title>Chat CX</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/chat.css">
+    <link rel="icon" href="/static/BV_Logo.png" type="image/x-icon" sizes="128x128">
 </head>
 <body>
     <!-- Inserta el username como variable JS global -->
@@ -19,9 +20,8 @@
         <!-- Sidebar -->
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header" style="position:relative;">
-                <i class="fa fa-comments"></i> Chat Tugó
-                <button id="sidebar-close-btn" title="Cerrar menú" aria-label="Cerrar menú"
-                    style="display:none;position:absolute;top:16px;right:16px;background:none;border:none;font-size:1.7em;color:#df5f4a;cursor:pointer;z-index:10;">
+                <i class="fa fa-comments"></i> Chat CX
+                <button id="sidebar-close-btn" title="Cerrar menú" aria-label="Cerrar menú">
                     &times;
                 </button>
             </div>
@@ -33,7 +33,7 @@
                 <ul class="conversation-list" id="conversation-list"></ul>
             </div>
             <div class="sidebar-footer">
-                <span style="font-size:13px;">&copy; Tugó <span id="footer-year"></span></span>
+                <span style="font-size:13px;">&copy; Bigview <span id="footer-year"></span></span>
             </div>
         </div>
         <!-- Chat principal -->
@@ -49,7 +49,7 @@
                 </button>
                 <span id="chat-title">Chat</span>
                 <div class="chat-header-user" style="display:flex;align-items:center;gap:18px;">
-                    <span id="user-display" data-username="{{ username }}" style="font-size:15px;color:#c66642;font-weight:500;">
+                    <span id="user-display" data-username="{{ username }}" >
                         <!-- username se inserta por JS -->
                     </span>
                     <a href="#" class="logout-btn" title="Cerrar sesión" id="logout-link" style="padding:8px 10px;">
