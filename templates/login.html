@@ -5,11 +5,10 @@
     <title>Login - Chat Tugó</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap" rel="stylesheet">
-    <link rel="icon" href="/static/BV_Logo.png" type="image/x-icon">
     <style>
         body {
-            font-family: "Lato", Sans-serif;
-            background: url('/static/fondo_1.jpg') no-repeat center center fixed;
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+            background: url('/static/Tugo3.jpg') no-repeat center center fixed;
             background-size: cover;
             display: flex;
             align-items: center;
@@ -22,28 +21,28 @@
             content: "";
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
-            background: rgba(230,240,255,0.55);
+            background: rgba(245,245,245,0.55);
             backdrop-filter: blur(2.5px);
             z-index: 0;
         }
         .login-container {
-            background: linear-gradient(135deg, #f8fbff 80%, #e6f4fb 100%);
+            background: linear-gradient(135deg, #fff 80%, #fbeee6 100%);
             padding: 36px 28px 28px 28px;
             border-radius: 18px;
-            box-shadow: 0 8px 32px rgba(12,42,75,0.13), 0 1.5px 8px rgba(0,0,0,0.07);
+            box-shadow: 0 8px 32px rgba(223,95,74,0.13), 0 1.5px 8px rgba(0,0,0,0.07);
             text-align: center;
             width: 420px;
             max-width: 95vw;
-            border: 1.5px solid #0c2a4b;
+            border: 1.5px solid #f3d1c7;
             position: relative;
             z-index: 1;
         }
         .login-container h2 {
             margin-bottom: 26px;
-            color: #0c2a4b;
+            color: #c66642;
             font-size: 2em;
             letter-spacing: 0.5px;
-            font-family: "Lato", Sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
             font-weight: 600;
         }
         .login-container input {
@@ -51,18 +50,18 @@
             padding: 13px 14px;
             margin: 12px 0;
             border-radius: 7px;
-            border: 1.2px solid #0c2a4b;
+            border: 1.2px solid #e3bca8;
             font-size: 15.5px;
-            background: #f4faff;
+            background: #faf7f6;
             transition: border 0.18s;
-            font-family: "Lato", Sans-serif;
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
         }
         .login-container input:focus {
-            border: 1.2px solid #0c2a4b;
+            border: 1.2px solid #df5f4a;
             outline: none;
         }
         .login-container button {
-            background: linear-gradient(90deg, #0c2a4b 60%, #14406e 100%);
+            background: linear-gradient(90deg, #df5f4a 60%, #c66642 100%);
             color: white;
             border: none;
             border-radius: 7px;
@@ -71,13 +70,13 @@
             font-size: 16px;
             cursor: pointer;
             margin-top: 18px;
-            box-shadow: 0 2px 8px rgba(12,42,75,0.10);
-            font-family: "Lato", Sans-serif;
+            box-shadow: 0 2px 8px rgba(223,95,74,0.10);
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
             font-weight: 600;
             transition: background 0.18s;
         }
         .login-container button:hover {
-            background: linear-gradient(90deg, #14406e 60%, #0c2a4b 100%);
+            background: linear-gradient(90deg, #a0522d 60%, #c66642 100%);
         }
         @media (max-width: 600px) {
             .login-container {
